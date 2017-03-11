@@ -1,7 +1,54 @@
-# A Library which adds a Privacy Policy/License activity to your app.
-This library is easily configurable and very convenient if you have multiple app on Google Play, which need a Privacy Policy added.
+# Privacy Policy/License Android Activity.
+Adds a license\privacy policy activity to your app.
+This library is easily configurable and very convenient if you have multiple apps on Google Play, which need a Privacy Policy added.
 
 ## How to use
+
+* Add to the main build.gradle file:
+
+```
+buildscript { 
+
+    repositories { 
+        mavenCentral() 
+    } 
+
+    dependencies {
+        ... 
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.5.1'
+        ... 
+        }
+	 }
+```
+
+* Add to the settings.gradle:
+
+```
+include ':app', ':license-release' 
+```
+
+* Add to the app's build.gradle file:
+
+```
+dependencies {
+        ... 
+        compile project(':license-release')
+        ... 
+	}
+```
+
+* Create for simplicity a new xml values file and add a string resource (you can use html):
+
+```
+<string name="license">     
+    <![CDATA[         
+        <body>
+		    <h2>Privacy Policy</h2>         		
+		    ...         
+        </body>     
+    ]]>
+ </string>
+```
 
 ## Additional information
 
