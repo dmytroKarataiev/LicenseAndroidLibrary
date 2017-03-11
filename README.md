@@ -4,11 +4,12 @@ This library is easily configurable and very convenient if you have multiple app
 
 ## How to use
 
+* Download the repo, assemble the library, than follow next steps below.
+
 * Add to the main build.gradle file:
 
 ```
 buildscript { 
-
     repositories { 
         mavenCentral() 
     } 
@@ -17,8 +18,8 @@ buildscript { 
         ... 
         classpath 'com.jakewharton:butterknife-gradle-plugin:8.5.1'
         ... 
-        }
-	 }
+    }
+ }
 ```
 
 * Add to the settings.gradle:
@@ -31,10 +32,10 @@ include ':app', ':license-release' 
 
 ```
 dependencies {
-        ... 
-        compile project(':license-release')
-        ... 
-	}
+    ... 
+    compile project(':license-release')
+    ... 
+}
 ```
 
 * Create for simplicity a new xml values file and add a string resource (you can use html):
@@ -50,7 +51,24 @@ dependencies {
  </string>
 ```
 
+* The best place to add a link to this new activity is in the options menu:
+
+```
+public boolean onOptionsItemSelected(MenuItem item) {
+    int id = item.getItemId();
+    switch (id) {
+        ...
+        case R.id.action_license:
+            startActivity(new Intent(this, LicenseActivity.class));
+            return true;
+        ...
+    }
+    return super.onOptionsItemSelected(item);
+}
+```
+
 ## Additional information
+
 
 License
 -------
